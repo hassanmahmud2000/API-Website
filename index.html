@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+ <html data-theme="light" lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+ </head>
+ <body>
+    <header>
+        <h1 class="text-6xl font-semibold text-center mt-4">API Website</h1>
+    </header>
+    <main class="container mx-auto">
+        <!-- Search Area Box -->
+        <section class="my-3">
+            <input id="search-area" type="text" placeholder="Search..." class="input input-bordered input-info w-full max-w-xs" />
+            <button onclick="searchField ()" class="btn btn-accent">Search</button>
+        </section>
+        <!-- Products -->
+        <section>
+            <div id="card-container" class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">
+                <!-- <div class="card w-96 bg-gray-300 shadow-xl">
+                    <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                    <div class="card-body">
+                      <h2 class="card-title">Shoes!</h2>
+                      <p>If a dog chews shoes whose shoes does he choose?</p>
+                      <div class="card-actions justify-end">
+                        <button class="btn btn-primary">Buy Now</button>
+                      </div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- Spinner -->
+            <div id="spinner" class="text-center my-40 hidden">
+                <span  class="loading loading-spinner text-secondary"></span>
+            </div>
+            <div class=" text-center">
+                <button id="showAll" class="btn btn-primary hidden text-center my-40">Show All</button>
+            </div>
+        </section>
+    </main>
+    <script src="JS/api.js"></script>
+ </body>
+ </html>
