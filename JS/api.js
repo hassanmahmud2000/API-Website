@@ -23,10 +23,11 @@ function displayData (phones) {
     phones = phones.slice(0,12);
 
     phones.forEach(Phone => {
-        console.log (Phone);
+        // console.log (Phone);
 
         const phoneCard = document.createElement ('div');
         // Inner HTML Create !!!!!!!
+        // Phone.slug ai id ta doubole  ("") kotetion ar bitor nite hole single  ('') kotetion dia nite hobe
         phoneCard.classList=`card bg-gray-100 shadow-xl`
         phoneCard.innerHTML=`<div class="card bg-gray-100 p-3 shadow-xl">
         <figure><img src="${Phone.image}" alt="Shoes" /></figure>
@@ -47,9 +48,27 @@ function displayData (phones) {
 }
 
 // showDetails BUtton !!!!!!!!!!!!!!!!!!!!!!
-const showDetails = (id) => {
+const showDetails = async (showId) => {
     const details = document.getElementById ('showDetails');
-    console.log (id)
+    // console.log (id)
+    const res = await fetch (` https://openapi.programming-hero.com/api/phone/${showId}`);
+    const data = await res.json();
+    const phoneModal = data.data;
+
+    console.log(phoneModal);
+    showModal (phoneModal);
+}
+// Show Details !!!!
+
+const showModal = (phone) => {
+    // console.log(phone);
+    const phoneNameModal = document.getElementById ('modalPhoneName');
+    phoneNameModal.innerText = phone.name;
+
+    // console.log(phoneNameModal);
+
+    showModalId.showModal();
+    
 }
 
 // Search Products !!!!!!!!!!!
@@ -57,7 +76,7 @@ const searchField=() => {
     spinnerToggol (true);
     const textField = document.getElementById ('search-area');
     const searchText = textField.value;
-    console.log (searchText);
+    // console.log (searchText);
     loadPhone (searchText);
 }
 
@@ -70,3 +89,5 @@ const spinnerToggol = (isLoding) =>  {
         spinner.classList.add ('hidden')
     }
 }
+
+
